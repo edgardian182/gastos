@@ -32,6 +32,7 @@ $navbar-inverse-link-active-bg:            $body-bg;
 
 .panel-body input {
   background: white;
+  color: black;
 }
 
 .panel-body {
@@ -40,6 +41,7 @@ $navbar-inverse-link-active-bg:            $body-bg;
 
 .panel-body input[type="submit"] {
   background-color: $gray-darker !important;
+  color: white;
 }
 
 a {

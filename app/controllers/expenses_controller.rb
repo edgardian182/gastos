@@ -1,6 +1,8 @@
 class ExpensesController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
+
   def index
-     @expenses = Expense.order("date DESC")
+     @expenses = Expense.order("date DESC").where(user: current_user)
      # if params[:concept].present?
      #  @expenses = @expenses.where("concept LIKE ?","%#{params[:concept]}%")
      # end
