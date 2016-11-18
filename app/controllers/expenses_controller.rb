@@ -1,5 +1,5 @@
 class ExpensesController < ApplicationController
-  before_action :authenticate_user!, only: [:index]
+  before_action :authenticate_user!
 
   def index
      @expenses = Expense.order("date DESC").where(user: current_user)
@@ -12,5 +12,9 @@ class ExpensesController < ApplicationController
 
      # Esta se usa para separar las consultas del Controlador y dejarlas en el Model que especifica la DB
      @expenses = @expenses.search_by_concept(params).search_by_category(params)
+  end
+
+  def new
+    @expense = Expense.new
   end
 end
