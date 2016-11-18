@@ -3,6 +3,7 @@
 <head>
   <title>Xpenses</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'devise', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -30,12 +31,11 @@
   </nav>
 
 <div class="container">
-  <p><%= notice %></p>
-  <p><%= alert %></p>
-</div>
-
-<div class="container">
-  <%= yield %>
+  <div class="col-xs-6 col-xs-offset-3">
+    <p><%= notice %></p>
+    <p><%= alert %></p>
+    <%= yield %>
+  </div>
 </div>
 
 </body>

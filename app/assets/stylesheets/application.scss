@@ -2,7 +2,7 @@
 
 $gray-darker:           #33373a;
 $gray:                  #3D4245;
-$gray-light:            #99a0a2;   
+$gray-light:            #99a0a2;
 
 $brand-primary:         $gray;
 $btn-primary-color:     #ccc;
@@ -25,6 +25,26 @@ $navbar-inverse-bg:                        $brand-primary;
 
 $navbar-inverse-link-active-color:         #ccc;
 $navbar-inverse-link-active-bg:            $body-bg;
+
+.panel-heading {
+  background-color: $navbar-inverse-color !important;
+}
+
+.panel-body input {
+  background: white;
+}
+
+.panel-body {
+  color: black;
+}
+
+.panel-body input[type="submit"] {
+  background-color: $gray-darker !important;
+}
+
+a {
+  color: white !important;
+}
 
 @import "bootstrap";
 @import "expenses";
