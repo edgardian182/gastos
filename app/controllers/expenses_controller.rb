@@ -1,5 +1,6 @@
 class ExpensesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_expense, only: [:edit, :update, :destroy]
 
   def index
      @expenses = Expense.order("date DESC").where(user: current_user)
@@ -16,5 +17,36 @@ class ExpensesController < ApplicationController
 
   def new
     @expense = Expense.new
+  end
+
+  def create
+    @expense = Expense.new(expense_params)
+    @expense.user = current_user
+    if @expense.save
+      redirect_to expenses_path
+    else
+      render :new
+    end
+  end
+
+  def edit
+
+  end
+
+  def update
+    if @expense.update(expense_params)
+      redirect_to expenses_path
+    else
+      render :edit
+    end
+  end
+
+  private
+  def expense_params
+    params.require(:expense).permit(:concept,:amount,:date,:category_id)
+  end
+
+  def set_expense
+    @expense = Expense.find(params[:id])
   end
 end

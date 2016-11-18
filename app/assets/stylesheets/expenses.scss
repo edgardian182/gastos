@@ -1,13 +1,13 @@
 #transactions {
-  .date { 
+  .date {
     width: 50px;
     text-align: center;
 
-    .day { 
+    .day {
       font-size: 21px;
       line-height: 1.1em;
     }
-    .month { font-size: 13px; } 
+    .month { font-size: 13px; }
   }
   .concept {
     color: #ccd1d4;
@@ -18,5 +18,8 @@
   }
   .amount {
     font-size: 18px;
+  }
+  tr:hover {
+    background-color: #3D4245;
   }
 }

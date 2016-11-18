@@ -1,0 +1,50 @@
+<h1 class="text-center"><%= @expense.new_record? ? "Agrega Nuevo Gasto" : "Editando Gasto" %></h1>
+<br>
+
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <%= form_for @expense do |f| %>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+          </div>
+          <%= f.text_field :concept, placeholder:"Concepto",class:"form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+          </div>
+          <%= f.text_field :amount, placeholder:"Gasto",class:"form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+          </div>
+          <%= f.date_field :date, placeholder:"dd/mm/yyyy",class:"form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+          </div>
+          <%= f.select :category_id, Category.all.collect {|c| [c.name, c.id]}, {include_blanck: true}, {:class => "form-control"} %>
+        </div>
+      </div>
+
+      <br>
+      <div class="form-group text-center">
+        <%= f.submit @expense.new_record? ? "Añadir" : "Editar", class:"btn btn-success" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
