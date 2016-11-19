@@ -19,6 +19,9 @@
   .amount {
     font-size: 18px;
   }
+  thead tr:first-child:hover {
+    background-color: #33373a;
+  }
   tr:hover {
     background-color: #3D4245;
   }

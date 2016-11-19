@@ -16,6 +16,9 @@ class Expense < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
 
+  validates_presence_of :concept, :amount, :date, :category_id, :user_id
+  validates_numericality_of :amount
+
 
   scope :search_by_concept, -> (params) {where("concept LIKE ?", "%#{params[:concept]}%") if params[:concept].present?}
 
