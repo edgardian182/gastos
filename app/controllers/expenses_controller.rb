@@ -30,7 +30,6 @@ class ExpensesController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -38,6 +37,14 @@ class ExpensesController < ApplicationController
       redirect_to expenses_path
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @expense.destroy
+      redirect_to expenses_path
+    else
+      render expenses_path
     end
   end
 

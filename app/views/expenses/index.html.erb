@@ -31,19 +31,23 @@
         <tbody>
           <% @expenses.each do |expense| %>
           <!-- expenses.coffee lleva a edicion -->
-            <tr class="expense-data" data-link="<%= edit_expense_path(expense) %>">
+            <tr>
               <td class="date">
                 <div class="day"><%= l(expense.date, format: "%d") %></div>
                 <div class="month"><%= l(expense.date, format: "%b") %></div>
               </td>
-              <td class="concept"><%= expense.concept%></td>
+              <td class="concept expense-data" data-link="<%= edit_expense_path(expense) %>"><%= expense.concept%></td>
               <td class="category text-right"><%= expense.category.name %></td>
               <td class="text-right amount" style="width: 170px;"><%= number_to_currency(expense.amount, precision: 0) %></td>
+              <td class="text-right">
+                <%= link_to "<span class='glyphicon glyphicon-minus' aria-hidden='true'></span>".html_safe, expense_path(expense), method: :delete, data:{confirm: "¿Quieres eliminar este gasto?"}, class:"btn-danger", style:"border-radius:5px" %>
+              </td>
             </tr>
           <% end %>
         </tbody>
       </table>
     </div>
+
   </div>
 
 
